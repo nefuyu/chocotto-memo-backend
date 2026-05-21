@@ -6,8 +6,8 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: chocotto_memo
-      MYSQL_USER: root
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_USER: ${SPRING_DATASOURCE_USERNAME}
+      MYSQL_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       TZ: Asia/Tokyo
     volumes:
