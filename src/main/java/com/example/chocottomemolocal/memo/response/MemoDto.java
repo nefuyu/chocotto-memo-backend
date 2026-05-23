@@ -2,16 +2,20 @@ package com.example.chocottomemolocal.memo.response;
 
 import com.example.chocottomemolocal.memo.entity.MemoEntity;
 import com.example.chocottomemolocal.memo.query.FolderMemoRow;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import tools.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
+import tools.jackson.databind.annotation.JsonNaming;
 
 @Builder
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(onConstructor_ = @JsonCreator)
+@JsonNaming(SnakeCaseStrategy.class)
 public class MemoDto {
     private Long id;
     private String title;

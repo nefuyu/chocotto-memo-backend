@@ -65,7 +65,7 @@ public interface MemoMapper {
         )
     """)
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    long save(MemoEntity memo);
+    int save(MemoEntity memo);
 
     @Update("""
         UPDATE 

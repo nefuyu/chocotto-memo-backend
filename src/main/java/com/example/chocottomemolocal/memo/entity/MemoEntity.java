@@ -8,12 +8,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.Setter;
 
 @Builder
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class MemoEntity {
+    @Setter
     private long id;
     private String title;
     private String content;

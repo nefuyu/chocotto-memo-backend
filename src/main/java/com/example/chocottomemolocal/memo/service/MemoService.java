@@ -23,7 +23,6 @@ public class MemoService {
         return memoRepository.findById(id);
     }
 
-
     public long create(@NonNull MemoEntity memo) {
         memoRepository.save(memo);
         return memo.getId();

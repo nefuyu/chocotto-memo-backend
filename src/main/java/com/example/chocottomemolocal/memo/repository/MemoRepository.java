@@ -22,7 +22,7 @@ public class MemoRepository {
         return memoMapper.findById(id);
     }
 
-    public long save(MemoEntity memo) {
+    public int save(MemoEntity memo) {
         return memoMapper.save(memo);
     }
 

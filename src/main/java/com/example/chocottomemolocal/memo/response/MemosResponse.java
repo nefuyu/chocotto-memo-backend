@@ -8,11 +8,15 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 import com.example.chocottomemolocal.memo.entity.MemoEntity;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import tools.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
+import tools.jackson.databind.annotation.JsonNaming;
 
 @Builder
 @Getter
-@AllArgsConstructor
+@AllArgsConstructor(onConstructor_ = @JsonCreator)
 @NoArgsConstructor
+@JsonNaming(SnakeCaseStrategy.class)
 public class MemosResponse {
     private List<MemoDto> memos;
 
