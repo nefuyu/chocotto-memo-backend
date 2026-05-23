@@ -23,7 +23,7 @@ public interface MemoMapper {
             m.updated_at,
             m.update_count
         FROM
-            memos AS m
+            memo AS m
         WHERE
             m.is_deleted = false
     """)
@@ -39,7 +39,7 @@ public interface MemoMapper {
             m.updated_at,
             m.update_count
         FROM 
-            memos AS m 
+            memo AS m 
         WHERE
             m.id = #{id}
             AND m.is_deleted = false
@@ -47,7 +47,7 @@ public interface MemoMapper {
     MemoEntity findById(@Param("id") long id);
 
     @Insert("""
-        INSERT INTO memos (
+        INSERT INTO memo (
             title,
             content,
             is_deleted,
@@ -69,7 +69,7 @@ public interface MemoMapper {
 
     @Update("""
         UPDATE 
-            memos AS m 
+            memo AS m 
         SET 
             m.title = #{title},
             m.content = #{content},
@@ -83,7 +83,7 @@ public interface MemoMapper {
 
     @Update("""
         UPDATE 
-            memos AS m 
+            memo AS m 
         SET 
             m.is_deleted = true,
             m.updated_at = UNIX_TIMESTAMP(),

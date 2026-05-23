@@ -24,7 +24,7 @@ public interface FolderMapper {
             f.updated_at,
             f.update_count
         FROM
-            folders AS f
+            folder AS f
     """)
     List<FolderEntity> findAll();
 
@@ -36,7 +36,7 @@ public interface FolderMapper {
             f.updated_at,
             f.update_count
         FROM
-            folders AS f
+            folder AS f
         WHERE
             f.id = #{id}
     """)
@@ -53,12 +53,12 @@ public interface FolderMapper {
             m.created_at AS memo_created_at,
             m.updated_at AS memo_updated_at
         FROM
-            folders AS f
+            folder AS f
         LEFT JOIN
             folder_memo AS fm
             ON fm.folder_id = f.id
         LEFT JOIN
-            memos AS m
+            memo AS m
             ON m.id = fm.memo_id
             AND m.is_deleted = false
         WHERE
@@ -69,7 +69,7 @@ public interface FolderMapper {
     List<FolderMemoRow> findMemosById(@Param("folderId") long folderId);
 
     @Insert("""
-        INSERT INTO folders (
+        INSERT INTO folder (
             name,
             created_at,
             updated_at,
@@ -87,7 +87,7 @@ public interface FolderMapper {
 
     @Update("""
         UPDATE 
-            folders AS f
+            folder AS f
         SET
             f.name = #{name},
             f.updated_at = CURRENT_TIMESTAMP,
@@ -100,7 +100,7 @@ public interface FolderMapper {
 
     @Delete("""
         DELETE FROM
-            folders AS f
+            folder AS f
         WHERE
             f.id = #{id}
             AND f.update_count = #{updateCount}
